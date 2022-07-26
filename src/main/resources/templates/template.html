@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			
+		label {
+    display:block;
+    }
+    .textColor {
+    color: #a8bbf8;
+    }
+    h2{
+     width: 100%;
+    text-align:center;
+    }
+			
+		</style>
+	</head>
+	<body>
+	<h2>Bus Ticket</h2>
+		<div class="container">
+			<div class="row">
+			<div class= "col-md-6">
+					<label>Date of Departure:</label><div class="textColor"><p th:text ="${date}"/></div>
+					</div>
+					<div class= "col-md-6">
+					<label>Name of Primary Passenger:</label><div class="textColor"><p th:text ="${name}"/></div>
+					</div>
+					</div>
+					<div class = "row">
+					<div class= "col-md-6">
+					<label>Ticket No:</label><div class="textColor">#123456</div>
+					</div>
+					<div class= "col-md-6">
+					<label>No. of Passengers Traveling:</label><div class="textColor"><p th:text ="${noOfPass}"/></div>
+					</div>
+					</div>
+					<div class="row">
+					<div class= "col-md-6">
+					<label>Departure:</label><div class="textColor" ><p th:text ="${From}"/></div>
+					</div>
+					<div class= "col-md-6">
+					<label>Destination:</label><div class="textColor"><p th:text ="${to}"/></div>
+					</div>
+				</div>
+				<div class="row">
+				<div class= "col-md-6">
+					<label>Bus Name:</label><div class="textColor"><p th:text ="${busName}"/></div>
+					</div>
+				</div>
+			</div>
+<h4>Note: Along with the ticket bring Primary Passenger's Id Proof.</h4>
+	</body>
+</html>
