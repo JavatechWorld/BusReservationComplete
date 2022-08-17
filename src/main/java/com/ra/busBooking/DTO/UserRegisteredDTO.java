@@ -10,13 +10,22 @@ public class UserRegisteredDTO {
 	
     private String name;
 	
-	
-	
 	private String email_id;
 	
 	private String password;
 	
-	String role;
+	private String role;
+	
+	
+
+	public UserRegisteredDTO() {
+		super();
+	}
+
+	public UserRegisteredDTO(String role) {
+		super();
+		this.role = role;
+	}
 
 	public String getName() {
 		return name;

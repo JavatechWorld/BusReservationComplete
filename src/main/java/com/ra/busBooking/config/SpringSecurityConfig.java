@@ -20,7 +20,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private DefaultUserServiceImpl customUserDetailsService;
-	    
+	
+	@Autowired
+	AuthenticationSuccessHandler successHandler;
 	
 	@Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -44,7 +46,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/registration").permitAll().anyRequest()
-                .authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard").
+                .authenticated().and().formLogin().loginPage("/login").successHandler(successHandler).
                                               permitAll().and().logout()
                 .invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).

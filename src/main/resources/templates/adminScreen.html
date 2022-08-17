@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Bus Reservation System</title>
+<link rel="stylesheet" 
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<style>
+    .navbar {
+        background-color: cadetblue;
+    }
+    .anchor{
+    margin: 6px;
+    background-color: #d9edf7;
+    border-color: #d9edf7;
+    }
+    input, label {
+    display:block;
+}
+</style>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                            <h1>Bus Reservation Admin Dashboard</h1>
+                            <div class="container">
+                            <div class="row">
+                            <div class="col-md-3">
+                           <h4> Hi, Welcome <span th:text ="*{userDetails}"></span> </h4></div>      
+                           <div class="col-md-3">
+                           <a th:href="@{/logout}" class="btn anchor" style="margin-left:500px"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Logout</a>
+                           </div>
+          </div>
+                                       </div> 
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br><br><br><br><br>
+    <!-- Create HTML registration form -->
+    
+    
+    <div class="container">
+    <div th:if="${param.success}">
+                  <div class="alert alert-info">Uploaded Successfully.</div>
+                </div>
+                
+                
+
+                
+
+                <form th:action="@{/adminScreen}" method="post" th:object="${busDetails}">
+                
+                <div class= "container">
+                             <div class="row">
+                             <div class="col-md-6">
+                    <div class="form-group" style="width: 21%;">
+                        <label class="control-label" for="from"> 
+                           From </label>
+                        <input id="from" class="form-control" 
+                                 th:field="*{fromDestination}" required 
+                            autofocus="autofocus" />
+                    </div>
+                    </div>
+
+<div class="col-md-6">
+                    <div class="form-group" style="width: 21%;">
+                        <label class="control-label" for="to"> To 
+                         </label> <input id="to" class="form-control"
+                            th:field="*{toDestination}" required  autofocus="autofocus" 
+                                />
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="row">
+                    <div class="col-md-6">
+		<div class="form-group" >
+		        <label  class="control-label"  for="filterDate"> Date
+        </label><input type="date" th:field="*{filterDate}" id="filterDate" required autofocus="autofocus" />
+		    </div>
+		    </div>
+		    <div class="col-md-6">
+		    <div class="form-group" style="width: 21%;">
+                        <label class="control-label" for="price"> Price 
+                         </label> <input id="price" class="form-control"
+                            th:field="*{price}" required  autofocus="autofocus" 
+                                />
+                    </div>
+		    </div>
+		    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                     <div class="form-group" style="width: 21%;">
+                        <label class="control-label" for="busName"> Bus Name 
+                         </label> <input id="busName" class="form-control"
+                            th:field="*{busName}" required  autofocus="autofocus" 
+                                />
+                    </div>
+                    </div>
+                   
+    
+                    
+                   <div class="col-md-6">
+                   
+                   <div class="form-group" style="width: 21%;">
+                        <label class="control-label" for="time"> Departure Time 
+                         </label> <input id="time" class="form-control" type="time"
+                            th:field="*{time}" required  autofocus="autofocus" 
+                                />
+                    </div>
+                    
+                     </div>
+                     </div>
+                     <div class="row">
+                     <div class="col-md-6">
+                     <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="margin-top:25px;">
+                          Upload </button>
+                        
+                    </div>
+                    </div>
+                     </div>
+                    </div>
+                
+                
+                                
+
+                
+                
+                
+                </form>
+                
+        </div>
+    
+    
+</body>
+
+</html>
